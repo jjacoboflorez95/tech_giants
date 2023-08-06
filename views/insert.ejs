@@ -10,7 +10,7 @@
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        <form action="/insert" method="post">
+        <form action="/insert" method="post" id="insert_form">
             <div id="div_client_information" class="form_inputs">
                 <input type="text" name="identification" id="identification" placeholder="Identification...">
                 <input type="text" name="first_name" id="first_name" placeholder="First name...">
@@ -27,12 +27,13 @@
                 <input type="text" name="email" id="email" placeholder="Email...">
                 <input type="text" name="phone" id="phone" placeholder="Phone...">
             </div>
-            <div id="div_product_information" class="form_inputs">                
-                <select id="product" name="product">
-                    <option value="baby_yoda">Baby Yoda</option>
-                    <option value="monopoly">Monopoly</option>
-                    <option value="nerf">Nerf</option>                    
-                  </select>                
+            <div id="div_product_information" class="form_inputs">                     
+                <select id="product" name="product" form="insert_form">                        
+                    <% for (let i = 0; i < product.length; i++) { %>
+                        <option value="<%= product[i].id %>" name="product"><%= product[i].name %></option>       
+                    <% } %>          
+                </select> 
+                                 
                 <input type="text" name="quantity" id="quantity" placeholder="Quantity...">
                 <input type="submit" name="place_order" value="Place order" class="form_submit">   
             </div>                        
