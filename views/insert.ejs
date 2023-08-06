@@ -5,11 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insert</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/insert.css">
 </head>
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
-        <h1>Helloo inserts!!</h1>
+        <form action="/insert" method="post">
+            <div id="div_client_information" class="form_inputs">
+                <input type="text" name="identification" id="identification" placeholder="Identification...">
+                <input type="text" name="first_name" id="first_name" placeholder="First name...">
+                <input type="text" name="middle_name" id="middle_name" placeholder="Middle name...">
+                <input type="text" name="last_name" id="last_name" placeholder="Last name...">
+                <input type="text" name="address" id="address" placeholder="Address..."> 
+                <div id="div_address_info">
+                    <input type="text" name="city" id="city" placeholder="City...">
+                    <input type="text" name="country" id="country" placeholder="Country...">
+                    <input type="text" name="zip_code" id="zip_code" placeholder="ZIP Code...">
+                    <input type="text" name="dob" id="dob" placeholder="Birthdate..." onfocus="(this.type='date')">
+                </div>                               
+                <input type="text" name="email" id="email" placeholder="Email...">
+                <input type="text" name="phone" id="phone" placeholder="Phone...">
+            </div>
+            <div id="div_product_information" class="form_inputs">                
+                <select id="product" name="product">
+                    <option value="baby_yoda">Baby Yoda</option>
+                    <option value="monopoly">Monopoly</option>
+                    <option value="nerf">Nerf</option>                    
+                  </select>
+                <input type="text" name="identification" id="identification" placeholder="Identification...">
+                <input type="text" name="quantity" id="quantity" placeholder="Quantity...">
+                <input type="submit" name="place_order" value="Place order" class="form_submit">   
+            </div>                        
+        </form>
     </main>
 </body>
 </html>

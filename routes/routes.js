@@ -13,6 +13,8 @@ router.get("/home", HomeController.home_get);
 
 router.get("/insert", InsertController.insert_get);
 
+router.post("/insert", InsertController.insert_post);
+
 router.get("/update", UpdateController.update_get);
 
 router.get("/reports", ReportsController.reports_get);
