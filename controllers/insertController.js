@@ -11,7 +11,7 @@ class InsertController {
 		console.log("insert_post");
 		try {
 			const form_data = req.body;
-			console.log("form data: ", form_data);
+			//console.log("form data: ", form_data);
 
 			const customer_to_save = new customerModel({
 				identification: form_data.identification,
