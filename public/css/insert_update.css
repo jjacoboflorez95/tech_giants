@@ -55,3 +55,11 @@ form {
 	border: 1px solid #105319cd;
 	transition: 0.5s;
 }
+
+@media (max-width: 1150px) {
+	form {
+		margin-top: 40px;
+		grid-template-columns: 1fr;
+		row-gap: 80px;
+	}
+}
