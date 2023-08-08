@@ -7,20 +7,23 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <%- include('./partials/header.ejs') %>
-    <main>
-        <h1>Welcome to our page</h1>
-        <table>
-            <tr>
-                <th>Tables</th>
-            </tr>
-            <tr><td>Inventory</td></tr>
-            <tr><td>Product</td></tr>
-            <tr><td>Order</td></tr>
-            <tr><td>Employees</td></tr>
-            <tr><td>Customer</td></tr>
-        </table>
-    </main>
+    <div class="wrapper">
+        <%- include('./partials/header.ejs') %>
+        <main>
+            <h1>Welcome to our page</h1>
+            <table>
+                <tr>
+                    <th>Tables</th>
+                </tr>
+                <tr><td>Inventory</td></tr>
+                <tr><td>Product</td></tr>
+                <tr><td>Order</td></tr>
+                <tr><td>Employees</td></tr>
+                <tr><td>Customer</td></tr>
+            </table>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+    </div>
     <script src="../js/changeFontFamilyWebsite.js"></script>
 </body>
 </html>
