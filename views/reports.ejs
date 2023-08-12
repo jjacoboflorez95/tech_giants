@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Reports</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <%- include('./partials/header.ejs') %>
-        <main>
-            <h1>Helloo reports!!</h1>
-        </main>
-        <%- include('./partials/footer.ejs') %>
+      <%- include('./partials/header.ejs') %>
+      <main>
+        <h1>List of Orders for One Customer</h1>
+        <h2>
+          Customer Full Name: <%= customer.first_name + ' ' +
+          customer.middle_name + ' ' + customer.last_name %>
+        </h2>
+        <ul>
+          <li><%= customer.address.address %></li>
+          <li>
+            <%= customer.address.city + ', ' + customer.address.province %>
+          </li>
+          <li><%= customer.address.country %></li>
+          <li><%= customer.address.zip_code %></li>
+        </ul>
+      </main>
+      <%- include('./partials/footer.ejs') %>
     </div>
     <script src="../js/changeFontFamilyWebsite.js"></script>
-</body>
+  </body>
 </html>
