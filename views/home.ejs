@@ -193,7 +193,7 @@
             <% for(let i=0; i<inventory.length; i++){ %>
                 <tr>
                     <td><%= i+1  %></td>
-                    <td><%= inventory[i].product_id  %></td>
+                    <td><%= inventory[i].product_id.name  %></td>
                     <td><%= inventory[i].quantity  %></td>
                 </tr>
                 <% } %>
@@ -221,9 +221,9 @@
                 <tr>
                     <td><%= i+1  %></td>
                     <td><%= orders[i].date  %></td>
-                    <td><%= orders[i].customer_id  %></td>
-                    <td><%= orders[i].employee_id  %></td>
-                    <td><%= orders[i].product_id  %></td>
+                    <td><%= orders[i].customer_id.first_name + " " + orders[i].customer_id.last_name   %></td>
+                    <td><%= orders[i].employee_id.first_name + " " + orders[i].employee_id.last_name  %></td>
+                    <td><%= orders[i].product_id.name  %></td>
                     <td><%= orders[i].quantity  %></td>
                     <td><%= orders[i].total_price  %></td>
                     <% if(orders[i].status == 1){ %>

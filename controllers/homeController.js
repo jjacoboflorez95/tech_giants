@@ -12,9 +12,13 @@ class HomeController {
     try {
       const products = await productModel.find();
       const employees = await employeeModel.find();
-      const inventories = await inventoryModel.find();
+      const inventories = await inventoryModel.find().populate("product_id");
       const customers = await customerModel.find();
-      const orders = await orderModel.find();
+      const orders = await orderModel
+        .find()
+        .populate("customer_id")
+        .populate("employee_id")
+        .populate("product_id");
       //   console.log("employees: ", employees);
       res.render("home.ejs", {
         products: products,
