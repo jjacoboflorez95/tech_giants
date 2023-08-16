@@ -19,7 +19,7 @@ const customerSchema = mongoose.Schema(
 	{
 		identification: { type: String, required: true },
 		first_name: { type: String, required: true },
-		middle_name: { type: String, required: true },
+		middle_name: { type: String },
 		last_name: { type: String, required: true },
 		address: {
 			address: { type: String, required: true },
