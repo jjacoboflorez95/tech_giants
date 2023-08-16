@@ -39,7 +39,7 @@ class InsertController {
 				_id: form_data.product,
 			});
 
-			if (isNaN(parseInt(form_data.quantity))) {
+			if (isNaN(form_data.quantity) || form_data.quantity == "") {
 				return res.render("insert.ejs", {
 					product: products_from_db,
 					error: true,

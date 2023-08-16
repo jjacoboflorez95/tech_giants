@@ -47,6 +47,10 @@ header a {
 	color: white;
 	text-decoration: none;
 }
+header a:hover,
+#logoheader h1:hover {
+	color: rgb(230, 230, 230);
+}
 nav ul {
 	list-style-type: none;
 	display: flex;
