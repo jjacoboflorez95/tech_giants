@@ -35,6 +35,6 @@ span {
 
 @media (max-width: 900px) {
 	.form_inputs input[type="submit"] {
-		width: 35%;
+		width: 25%;
 	}
 }

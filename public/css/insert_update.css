@@ -29,6 +29,14 @@ form {
 	border: none;
 	border-bottom: 1px solid rgb(189, 189, 189);
 	font-size: 120%;
+	background-color: transparent;
+	outline: none;
+	transition: border-bottom 0.5s;
+}
+
+.form_inputs input:focus,
+.form_inputs select:focus {
+	border-bottom: 1px solid rgb(163, 163, 163);
 }
 
 #div_address_info {
