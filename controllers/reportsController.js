@@ -3,7 +3,6 @@ import customerModel from "../models/customerModel.js";
 import inventoryModel from "../models/inventoryModel.js";
 import mongoose from "mongoose";
 import pdfkit from "pdfkit";
-import { parse } from "dotenv";
 const ObjectId = mongoose.Types.ObjectId;
 const months = [
   { month: "January", value: "1" },
@@ -172,8 +171,16 @@ class ReportsController {
           }
         );
       // Company logo
-      doc.circle(500, 50, 30).fill("#007bff");
-      doc.fillColor("black");
+      const imagePath = "./public/images/circuit.png";
+      const imageWidth = 60;
+      const imageHeight = 60;
+      const imageX = doc.page.width - imageWidth - 50;
+      const imageY = 50;
+
+      doc.image(imagePath, imageX, imageY, {
+        width: imageWidth,
+        height: imageHeight,
+      });
       // Company address
       doc.fontSize(12).text("Tech Giants");
       doc.text("123 King St");
@@ -244,9 +251,14 @@ class ReportsController {
       // Footer
       doc
         .fontSize(10)
-        .text("2023 Copyright Tech Giants", 50, doc.page.height - 95, {
-          align: "center",
-        });
+        .text(
+          "Derryck - 8862396 || Jacobo - 8857381",
+          50,
+          doc.page.height - 95,
+          {
+            align: "center",
+          }
+        );
       doc.end();
     }
   };
@@ -296,7 +308,18 @@ class ReportsController {
 
     doc.fontSize(20).text("INVOICE", { align: "center" });
     // Company logo
-    doc.circle(500, 50, 30).fill("#007bff");
+    const imagePath = "./public/images/circuit.png";
+    const imageWidth = 60;
+    const imageHeight = 60;
+    const imageX = doc.page.width - imageWidth - 50;
+    const imageY = 50;
+
+    doc.image(imagePath, imageX, imageY, {
+      width: imageWidth,
+      height: imageHeight,
+    });
+
+    // doc.circle(500, 50, 30).fill("#007bff");
     doc.fillColor("black");
     // Company address
     doc.fontSize(12).text("Tech Giants");
@@ -368,7 +391,9 @@ class ReportsController {
     // Footer
     doc
       .fontSize(10)
-      .text("Tech Giants", 50, doc.page.height - 95, { align: "center" });
+      .text("Derryck - 8862396 || Jacobo - 8857381", 50, doc.page.height - 95, {
+        align: "center",
+      });
     doc.end();
   };
 }
