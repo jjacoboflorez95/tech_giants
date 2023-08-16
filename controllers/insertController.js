@@ -5,7 +5,6 @@ import productModel from "../models/productModel.js";
 
 class InsertController {
 	static insert_get = async (req, res) => {
-		console.log("insert_get");
 		const product_from_db = await productModel.find({});
 		res.render("insert.ejs", {
 			product: product_from_db,
@@ -17,12 +16,10 @@ class InsertController {
 	};
 
 	static insert_post = async (req, res) => {
-		console.log("insert_post");
 		try {
 			let customer_id;
 			let total_price;
 			const form_data = req.body;
-			//console.log("form data: ", form_data);
 
 			// We get the products from db
 			const products_from_db = await productModel.find({});

@@ -11,10 +11,8 @@ class UpdateController {
 	};
 
 	static update_search_post = async (req, res) => {
-		console.log("update_search_post");
 		try {
 			const form_data = req.body;
-			console.log("form data: ", form_data);
 
 			const customer_from_db = await customerModel.findOne({
 				identification: form_data.identification,
@@ -43,10 +41,8 @@ class UpdateController {
 	};
 
 	static update_found_post = async (req, res) => {
-		console.log("update_found_post");
 		try {
 			const form_data = req.body;
-			console.log("form data: ", form_data);
 
 			await customerModel.updateOne(
 				{ _id: form_data.id_customer },
