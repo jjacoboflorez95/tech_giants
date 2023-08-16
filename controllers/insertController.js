@@ -7,9 +7,13 @@ class InsertController {
 	static insert_get = async (req, res) => {
 		console.log("insert_get");
 		const product_from_db = await productModel.find({});
-
-		console.log("");
-		res.render("insert.ejs", { product: product_from_db });
+		res.render("insert.ejs", {
+			product: product_from_db,
+			error: false,
+			spanMessage: false,
+			spanMessage: "",
+			data: null,
+		});
 	};
 
 	static insert_post = async (req, res) => {
@@ -19,6 +23,9 @@ class InsertController {
 			let total_price;
 			const form_data = req.body;
 			//console.log("form data: ", form_data);
+
+			// We get the products from db
+			const products_from_db = await productModel.find({});
 
 			// Calculation of the current date
 			const current_date = new Date();
@@ -34,6 +41,16 @@ class InsertController {
 			const product_from_db = await productModel.findOne({
 				_id: form_data.product,
 			});
+
+			if (isNaN(parseInt(form_data.quantity))) {
+				return res.render("insert.ejs", {
+					product: products_from_db,
+					error: true,
+					spanMessage: true,
+					message: "Quantity must be a number.",
+					data: form_data,
+				});
+			}
 
 			total_price =
 				parseInt(product_from_db.price) * parseInt(form_data.quantity);
@@ -78,9 +95,14 @@ class InsertController {
 			});
 
 			const order_saved_in_db = await order_to_save.save();
-			console.log("----------------------------------------------------");
-			console.log("");
-			res.redirect("/insert");
+			//res.redirect("/insert");
+			res.render("insert.ejs", {
+				product: products_from_db,
+				error: false,
+				spanMessage: true,
+				message: "Order created successfully.",
+				data: null,
+			});
 		} catch (error) {
 			console.log(error);
 		}
