@@ -1,47 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Insert</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/insert_update.css">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/insert_update.css" />
+  </head>
+  <body>
     <div class="wrapper">
-        <%- include('./partials/header.ejs') %>
-        <main>
-            <form action="/insert" method="post" id="insert_form">
-                <div id="div_client_information" class="form_inputs">
-                    <input type="text" name="identification" id="identification" placeholder="Identification...">
-                    <input type="text" name="first_name" id="first_name" placeholder="First name...">
-                    <input type="text" name="middle_name" id="middle_name" placeholder="Middle name...">
-                    <input type="text" name="last_name" id="last_name" placeholder="Last name...">
-                    <input type="text" name="address" id="address" placeholder="Address..."> 
-                    <div id="div_address_info">
-                        <input type="text" name="city" id="city" placeholder="City...">
-                        <input type="text" name="province" id="province" placeholder="Province...">
-                        <input type="text" name="country" id="country" placeholder="Country...">
-                        <input type="text" name="zip_code" id="zip_code" placeholder="ZIP Code...">                    
-                    </div>                               
-                    <input type="text" name="dob" id="dob" placeholder="Birthdate..." onfocus="(this.type='date')">
-                    <input type="text" name="email" id="email" placeholder="Email...">
-                    <input type="text" name="phone" id="phone" placeholder="Phone...">
-                </div>
-                <div id="div_product_information" class="form_inputs">                     
-                    <select id="product" name="product" form="insert_form">                        
-                        <% for (let i = 0; i < product.length; i++) { %>
-                            <option value="<%= product[i].id %>" name="product"><%= product[i].name %></option>       
-                        <% } %>          
-                    </select> 
-                                    
-                    <input type="text" name="quantity" id="quantity" placeholder="Quantity...">
-                    <input type="submit" name="place_order" value="Place order" class="form_submit">   
-                </div>                        
-            </form>
-        </main>
-        <%- include('./partials/footer.ejs') %>
+      <%- include('./partials/header.ejs') %>
+      <main>
+        <form action="/insert" method="post" id="insert_form">
+          <div id="div_client_information" class="form_inputs">
+            <input
+              type="text"
+              name="identification"
+              id="identification"
+              placeholder="Identification..."
+            />
+            <input
+              type="text"
+              name="first_name"
+              id="first_name"
+              placeholder="First name..."
+            />
+            <input
+              type="text"
+              name="middle_name"
+              id="middle_name"
+              placeholder="Middle name..."
+            />
+            <input
+              type="text"
+              name="last_name"
+              id="last_name"
+              placeholder="Last name..."
+            />
+            <input
+              type="text"
+              name="address"
+              id="address"
+              placeholder="Address..."
+            />
+            <div id="div_address_info">
+              <input type="text" name="city" id="city" placeholder="City..." />
+              <input
+                type="text"
+                name="province"
+                id="province"
+                placeholder="Province..."
+              />
+              <input
+                type="text"
+                name="country"
+                id="country"
+                placeholder="Country..."
+              />
+              <input
+                type="text"
+                name="zip_code"
+                id="zip_code"
+                placeholder="ZIP Code..."
+              />
+            </div>
+            <input
+              type="text"
+              name="dob"
+              id="dob"
+              placeholder="Birthdate..."
+              onfocus="(this.type='date')"
+            />
+            <input type="text" name="email" id="email" placeholder="Email..." />
+            <input type="text" name="phone" id="phone" placeholder="Phone..." />
+          </div>
+          <div id="div_product_information" class="form_inputs">
+            <select id="product" name="product" form="insert_form">
+              <% for (let i = 0; i < product.length; i++) { %>
+              <option value="<%= product[i].id %>" name="product">
+                <%= product[i].name %>
+              </option>
+              <% } %>
+            </select>
+
+            <input
+              type="text"
+              name="quantity"
+              id="quantity"
+              placeholder="Quantity..."
+            />
+            <input
+              type="submit"
+              name="place_order"
+              value="Place order"
+              class="form_submit"
+            />
+          </div>
+        </form>
+      </main>
+      <%- include('./partials/footer.ejs') %>
     </div>
     <script src="../js/changeFontFamilyWebsite.js"></script>
-</body>
+  </body>
 </html>
