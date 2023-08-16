@@ -30,6 +30,14 @@ class InsertController {
 				_id: form_data.product,
 			});
 
+			/*if (isNaN(form_data.quantity)) {
+				const product_from_db = await productModel.find({});
+				res.render("insert.ejs", {
+					product: product_from_db,
+					error: "Quantity must be a number.",
+				});
+			}*/
+
 			total_price =
 				parseInt(product_from_db.price) * parseInt(form_data.quantity);
 
